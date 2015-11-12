@@ -3,19 +3,11 @@ package org.junit.tests.assertion;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.expectThrows;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 import org.junit.Assert;
 import org.junit.Assert.ThrowingRunnable;
@@ -288,8 +280,12 @@ public class AssertionTest {
     
     @Test
     public void test_assertGreaterThen() {
-        //BLABLA
-    } 
+        assertGreaterThan("c", "b", new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+    }
     
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
