@@ -119,6 +119,15 @@ public class Assert {
             failNotEquals(message, expected, actual);
         }
     }
+    
+    //verifichi che il primo oggetto sia più grande del secondo in base al comparator passato.
+    public static <T> void assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator) {
+        if (comparator.compare(o1, o2) > 0 ) return;
+        else         
+        fail();
+
+    }
+
 
     private static boolean equalsRegardingNull(Object expected, Object actual) {
         if (expected == null) {
@@ -1019,4 +1028,5 @@ public class Assert {
                 expectedThrowable.getSimpleName());
         throw new AssertionError(message);
     }
+    
 }

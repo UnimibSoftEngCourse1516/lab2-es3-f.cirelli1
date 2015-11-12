@@ -24,6 +24,7 @@ import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 
 /**
+/**
  * Tests for {@link org.junit.Assert}
  */
 public class AssertionTest {
@@ -284,7 +285,12 @@ public class AssertionTest {
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }
-
+    
+    @Test
+    public void test_assertGreaterThen() {
+        //BLABLA
+    } 
+    
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
         assertEquals(new Object(), null);
